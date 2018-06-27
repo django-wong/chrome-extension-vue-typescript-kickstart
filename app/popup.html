@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/vendors.css" rel="stylesheet">
+  </head>
+  <body class="screen-popup">
+    <div id="app" v-cloak>
+      <div class="layout" v-if="authenticated && !loading">
+        <layout>
+          <i-header>
+            <i-menu mode="horizontal" theme="dark" active-name="1">
+              <div class="layout-logo"></div>
+              <!-- <div class="layout-nav">
+                <menu-item name="1">
+                  <icon type="ios-navigate"></icon>
+                  Item 1
+                </menu-item>
+                <menu-item name="2">
+                  <icon type="ios-keypad"></icon>
+                  Item 2
+                </menu-item>
+                <menu-item name="3">
+                  <icon type="ios-analytics"></icon>
+                  Item 3
+                </menu-item>
+                <menu-item name="4">
+                  <icon type="ios-paper"></icon>
+                  Item 4
+                </menu-item>
+              </div> -->
+            </i-menu>
+          </i-header>
+          <layout>
+            <sider hide-trigger :style="{background: '#fff'}">
+              <i-menu theme="light" width="auto" :open-names="['1']">
+                <submenu name="1">
+                  <template slot="title">
+                    <icon type="ios-navigate"></icon>
+                    <router-link tag="a" :to="'/foo'">
+                      Foo
+                    </router-link>
+                  </template>
+                  <router-link tag="a" :to="'/bar'">
+                    <menu-item name="1-1">
+                      Bar
+                    </menu-item>
+                  </router-link>
+                </submenu>
+                <!-- <submenu name="2">
+                  <template slot="title">
+                    <icon type="ios-keypad"></icon>
+                    Client Service
+                  </template>
+                  <menu-item name="2-1">Option 1</menu-item>
+                  <menu-item name="2-2">Option 2</menu-item>
+                </submenu>
+                <submenu name="3">
+                  <template slot="title">
+                    <icon type="ios-analytics"></icon>
+                    Item 3
+                  </template>
+                  <menu-item name="3-1">Option 1</menu-item>
+                  <menu-item name="3-2">Option 2</menu-item>
+                </submenu> -->
+              </i-menu>
+            </sider>
+            <layout :style="{padding: '0 24px 24px'}">
+              <!-- <breadcrumb :style="{margin: '24px 0'}">
+                <breadcrumb-item>Home</breadcrumb-item>
+                <breadcrumb-item>Components</breadcrumb-item>
+                <breadcrumb-item>Layout</breadcrumb-item>
+              </breadcrumb> -->
+              <i-content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                <router-view></router-view>
+              </i-content>
+            </layout>
+          </layout>
+        </layout>
+      </div>
+      <div v-if="!authenticated && !loading">
+        <Card :bordered="false" style="width: 300px; margin: 0px auto; margin-top: 40px; border: 1px solid blue">
+          <p slot="title">Login Required</p>
+          <p>Please go to options page to setup source name and password</p>
+        </Card>
+      </div>
+    </div>
+    <!-- build:js scripts/popup-vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/popup.js -->
+    <script src="scripts/vendors.js"></script>
+    <script src="./scripts/popup.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

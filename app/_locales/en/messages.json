@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Chrome Extension",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Yet another Chrome Extension",
+    "description": "The description of the application"
+  }
+}
